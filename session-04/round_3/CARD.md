@@ -18,11 +18,11 @@ python session-04/round_3/deploy_check.py
 
 ## My notes
 
-- The error type and message on the clean machine:
-- Why the app works in my Codespace:
-- What I changed, and in which file:
-- The two environments in this round are:
-- Did the assistant finish the job, or send me to check something?
+- The error type and message on the clean machine: ModuleNotFoundError: No module named 'tabulate'
+- Why the app works in my Codespace: The tabulate package was already installed in my Codespace, even though it was not listed in requirements.txt
+- What I changed, and in which file: requirements.txt add tabulate
+- The two environments in this round are:My existing Codespace development environment and a clean deployment environment that only installs packages listed in requirements.txt.
+- Did the assistant finish the job, or send me to check something?The assistant sent me to check whether tabulate was installed using pip show tabulate and whether it was listed in requirements.txt. I then added the missing dependency.
 
 ## Hints
 
