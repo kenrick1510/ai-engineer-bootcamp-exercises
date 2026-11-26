@@ -1,0 +1,4 @@
+# The packages this app needs, one per line.
+# A deploy host installs exactly what is listed here, and nothing else.
+openai
+python-dotenv

@@ -1,0 +1,5 @@
+[
+  {"day": "Monday", "calls": 14, "tokens_in": 3120, "tokens_out": 940},
+  {"day": "Wednesday", "calls": 31, "tokens_in": 8875, "tokens_out": 2410},
+  {"day": "Saturday", "calls": 6, "tokens_in": 1290, "tokens_out": 505}
+]
