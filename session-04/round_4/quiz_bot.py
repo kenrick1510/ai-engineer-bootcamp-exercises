@@ -5,7 +5,12 @@ Run it from the top folder of the repository:
 """
 
 from practice_api import ask
+import logging, time
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s"
+)
 QUESTIONS = [
     "What is a token?",
     "What is a context window?",
@@ -19,5 +24,7 @@ for question in QUESTIONS:
     try:
         answer = ask(question)
         print(f"A: {answer}")
-    except Exception:
-        print("Something went wrong.")
+    except Exception as error:
+      logging.error("ask failed: question=%r error=%s", question, error)
+
+    time.sleep(2.5)

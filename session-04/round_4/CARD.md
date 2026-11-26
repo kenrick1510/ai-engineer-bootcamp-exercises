@@ -28,11 +28,17 @@ python session-04/round_4/check.py
 ## My notes
 
 - In part 1, what did I paste, and what did the assistant ask me for?
+I pasted the Round 4 exercise description. The assistant asked me for the terminal output, the source code of quiz_bot.py, and the actual error message
 - The log line that named the cause (copy it here):
+2026-11-26 01:57:41,451 ERROR ask failed: question='What does temperature change?' error=Error code: 429 - Rate limit exceeded: 2 requests per 4 seconds. Try again in 4 seconds.
 - The status code in it, and what it means:
+HTTP 429 — Too Many Requests. The application exceeded the service's rate limit of two requests every four seconds.
 - What I changed to fix it:
+Added import time and time.sleep(2.5) at the end of each loop iteration in quiz_bot.py to introduce a delay between requests.
 - One thing that must never appear in a log line:
+API keys.
 - Did the assistant finish the job, or send me to check something?
+The assistant asked me to add logging and rerun the application to reveal the actual error. After identifying the rate limit, it suggested adding a delay between requests. I still needed to apply and verify the fix.
 
 ## Hints
 
