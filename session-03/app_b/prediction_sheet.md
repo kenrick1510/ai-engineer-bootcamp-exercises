@@ -40,46 +40,49 @@ You start the app and press Enter without typing anything. What appears on the s
 
 You send eight messages in one chat. On the eighth, how many messages in total does the app send to the model? Write a number.
 
-- My prediction:
+- My prediction:16 messages (if this was your original prediction).
 - How to check: Run the app and send eight short messages (one word each is fine). After the eighth reply, read the line in square brackets: `[turn 8: sent ... messages, ...]`.
-- What happened:
-- The line that explains it (file and line number):
+- What happened:The application sent 16 messages, consisting of one system message, eight user messages and seven previous assistant responses.
+- The line that explains it (file and line number):model.py, lines 32–33. The return [system_message] + history statement combines the system message with the entire conversation history.
 
 ## 3. What is saved, and when
 
 What file does the app create? What is inside it? At what moment is it written? Is anything written when you quit?
 
-- My prediction:
+- My prediction:The application creates a session file containing the conversation history, including user messages and Sage's responses. The file is saved after each successful assistant response. Nothing is written when the user quits.
 - How to check: Run the app and type `quit` straight away. Look in the `app_b` folder: is there anything new? Run it again, send one message, and look again. Open the new file. Type `quit` and see whether the file changed.
-- What happened:
-- The line that explains it (file and line number):
+- What happened:Complete this after running the test.
+- The line that explains it (file and line number):main.py, line 51:
 
 ## 4. Where the personality comes from
 
 Sage sounds encouraging. Which file and line would you change to make Sage sarcastic? Which lines of code turn that setting into the instructions the model receives?
 
-- My prediction:
+- My prediction:Changing the "tone" setting in settings.json from "encouraging" to "sarcastic" will make Sage respond in a more sarcastic manner
 - How to check: Make your change, save the file, run the app, and send a message. Then put the file back the way it was (Ctrl+Z, or Cmd+Z on a Mac) and save.
-- What happened:
+- What happened:Complete this after observing Sage's response.
 - The line that explains it (file and line number):
+settings.json, line 6 — Defines Sage's tone.
+model.py, line 23 — Converts the tone setting into a system prompt instruction.
+model.py, lines 32–33 — Adds the system prompt to the messages sent to the model.
 
 ## 5. A missing setting
 
 In `settings.json`, line 16, change `"temperature"` to `"temperatur"`. The setting the code looks for is now missing. You run the app and send a message. What happens?
 
-- My prediction:
+- My prediction:The application will continue working normally even though the "temperature" setting is missing. It will use the default temperature value of 0.7
 - How to check: Make the change, save, run the app, and send a message. Then undo the change and save.
-- What happened:
-- The line that explains it (file and line number):
+- What happened:If the test succeeds as expected, Sage responds normally without crashing because the code uses a default temperature of 0.7
+- The line that explains it (file and line number): model.py, line 43.
 
 ## 6. Another missing setting
 
 In `settings.json`, line 6, change `"tone"` to `"tonee"`. You run the app and send a message. What happens? Is it the same as question 5?
 
-- My prediction:
+- My prediction: Sage will not respond to the user's messages because the "tone" key is missing. However, the application will continue running without displaying an error. This is different from Question 5 because the tone setting does not have a default value
 - How to check: Make the change, save, run the app, and send two messages. Type `quit`. Then undo the change and save.
-- What happened:
-- The line that explains it (file and line number):
+- What happened:Complete this after running the test
+- The line that explains it (file and line number):model.py, line 23
 
 ## My score
 
