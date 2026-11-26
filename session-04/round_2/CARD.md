@@ -18,12 +18,15 @@ python session-04/round_2/check.py
 
 ## My notes
 
-- What kind of problem is this, going by the last line of the error?
+- What kind of problem is this, going by the last line of the error? An API authentication problem (HTTP 401), indicating that the service rejected the API key.
 - What did my assistant tell me to do? Did that fix it?
+The assistant suggested checking for hidden .env files using ls -a, removing the incorrect .env file inside round_2, and rerunning the script. I still need to verify the fix.
 - What was really wrong, in one sentence:
+The script was loading a local .env file containing an invalid API key instead of the valid .env file at the repository root.
 - The command that showed me:
+ls -a
 - Did the assistant finish the job, or send me to check something?
-
+The assistant sent me to check the local directory because it could not see my hidden configuration files from the stack trace alone
 ## Hints
 
 Try for three minutes before you open one.
