@@ -40,10 +40,17 @@ python ../check.py
 ## My notes
 
 - Where the key was (the commit's short code and its message):
+The key was stored in an earlier Git commit that contained changes to .env. Run git log --oneline to identify the exact commit ID and message.
 - The command that showed me the key:
+git log -p -- .env
 - Why deleting the line did not fix it:
+Deleting the API key from the current file did not remove it from Git history. Anyone with access to the repository could still retrieve the key from an earlier commit.
 - The three steps of the response, in order:
+1.Rotate the API key to revoke the compromised key and generate a replacement using python ../rotate_key.py.
+2.Stop Git from tracking .env using git rm --cached .env.
+3.Add .env to .gitignore and commit the changes to prevent future accidental exposure.
 - Did the assistant finish the job, or send me to check something?
+The assistant instructed me to inspect Git history, rotate the compromised key, stop tracking .env, and update .gitignore. I had to execute the commands and verify the repository's status myself.
 
 ## Hints
 
